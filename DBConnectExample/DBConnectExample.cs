@@ -25,7 +25,7 @@ namespace DBConnectExample
             
             cmd.CommandType = CommandType.Text;
             
-            cmd.CommandText = "SELECT year FROM AppFactory WHERE ID = 1";
+            cmd.CommandText = "SELECT year FROM Cohort WHERE ID = 1";
 
             cn.Open();
 
