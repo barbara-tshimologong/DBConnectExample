@@ -9,6 +9,12 @@ namespace DBConnectExample
         static void Main(string[] args)
         {
 
+
+            Cohort cohort = new Cohort();
+
+           
+
+            cohort.StartDate = DateTime.Now;
             //Connection
             //-------------------------------------------------------------------------------------------------
 
