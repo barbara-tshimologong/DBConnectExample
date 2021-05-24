@@ -8,34 +8,15 @@ namespace DBConnectExample
     {
         static void Main(string[] args)
         {
-
-            //Connection
-            //-------------------------------------------------------------------------------------------------
-
-            SqlConnection cn = new SqlConnection();
-
-            cn.ConnectionString = @"Server=(localdb)\MSSQLLocalDB;Database=AppFactory;Integrated Security=True;";
+            using SqlConnection cn = new(@"Server=(localdb)\MSSQLLocalDB;Database=AppFactory;Integrated Security=True;");
             
-
-            //Command
-            //-------------------------------------------------------------------------------------------------
-            SqlCommand cmd = new SqlCommand();
-            
+            using SqlCommand cmd = new();
             cmd.Connection = cn;
-            
             cmd.CommandType = CommandType.Text;
-            
-            cmd.CommandText = "SELECT year FROM Cohort WHERE ID = 1";
-
+            cmd.CommandText = "SELECT year,isActive FROM Cohort";
             cn.Open();
 
-            var result = cmd.ExecuteScalar();
-            
-            Console.WriteLine(result);
-
-            cn.Close();
-
-            cn.Dispose();
+            Console.WriteLine(cmd.ExecuteScalar());
         }
     }
 }
